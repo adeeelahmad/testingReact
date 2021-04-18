@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Parent from "./Parent"
+import Child from "./Child"
+import valueContext from "./ValueContext"
+import React, {useState} from "react"
+import GrandChild from "./GrandChild";
 
 function App() {
+  let value = useState(15);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+    <valueContext.Provider value = {value}>
+    hello from app
+    <Parent />
+    <Child />
+    <GrandChild></GrandChild>
+    </valueContext.Provider>
+  </div>
   );
 }
 
